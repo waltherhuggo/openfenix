@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+tml,body {
+    font-size: 100%;
+    margin: 0;
+    font-family: Verdana, sans-serif;
+}
+
+/* simple positioning */
+body {
+    width: 85%;
+    margin: 0 auto;
+}
+
+#content {
+	background-color: #CECECE;
+    float: left;
+    width: 630px;
+    margin: 0 10px;
+}
+
+#sidebar {
+    float: left;
+    width: 100px;
+    margin: 0 10px;
+}
+
+/* Prettyness! */
+h1 {
+    font-size: 1.4em;
+    color: #00a;
+}
+
+h2 {
+    font-size: 1.2em;
+    color: #00a;
+}
+
+#sidebar ul, #sidebar ul li {
+    margin-left: 10px;
+    padding-left: 0;
+}
