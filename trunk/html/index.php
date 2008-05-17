@@ -20,7 +20,7 @@ Zend_Loader::loadClass('Zend_Db_Table');
 Zend_Loader::loadClass('Zend_Debug');
 Zend_Loader::loadClass('Zend_Auth');
 
-if(file_exists('../application/config/config2.ini'))
+if(file_exists('../application/config/config.ini'))
 {
 	//Cargar Configuracion del Archivo INI
 	$config = new Zend_Config_Ini('../application/config/config.ini', 'general');
