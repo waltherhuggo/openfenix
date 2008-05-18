@@ -4,7 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><?php echo $this->escape($this->pageTitle); ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl(); ?>/scripts/extjs/resources/css/ext-all.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl(); ?>/scripts/extjs/resources/css/xtheme-olive.css" />	
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl(); ?>/scripts/extjs/resources/css/xtheme-olive.css" />
+	<style>
+	#login-logo .x-plain-body {
+        background:url(<?php echo $this->baseUrl(); ?>/images/openfenix2.png) no-repeat center center;
+	}
+	</style>
 	<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/scripts/extjs/adapter/ext/ext-base.js"></script>
 	<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/scripts/extjs/ext-all.js"></script>
 	<script type="text/javascript">
@@ -14,7 +19,14 @@
 	    Ext.QuickTips.init();
 	 
 		// Create a variable to hold our EXT Form Panel. 
-		// Assign various config options as seen.	 
+		// Assign various config options as seen.
+		var logoPanel = new Ext.Panel({
+			baseCls: 'x-plain',
+			id: 'login-logo',
+			region: 'center',
+			height: 250,
+		});
+			 
 	    var login = new Ext.FormPanel({ 
 	        labelWidth:80,
 	        url:'dologin',
@@ -28,7 +40,7 @@
 	 
 			// Specific attributes for the text fields for username / password. 
 			// The "name" attribute defines the name of variables sent to the server.
-	        items:[{ 
+	        items:[logoPanel,{ 
 	                fieldLabel:'Usuario', 
 	                name:'loginUsername', 
 	                allowBlank:false 
@@ -94,10 +106,11 @@
 	    var win = new Ext.Window({
 	        layout:'fit',
 	        width:300,
-	        height:150,
+	        height:380,
 	        closable: false,
-	        resizable: false,
-	        plain: true,
+	        resizable: true,
+	        plain: false,
+	        //items: [logoPanel,login]
 	        items: [login]
 		});
 		win.show();
