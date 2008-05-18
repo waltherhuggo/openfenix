@@ -3,7 +3,8 @@
 	<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><?php echo $this->escape($this->pageTitle); ?></title>
-	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl(); ?>/scripts/extjs/resources/css/ext-all.css">	
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl(); ?>/scripts/extjs/resources/css/ext-all.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl(); ?>/scripts/extjs/resources/css/xtheme-olive.css" />	
 	<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/scripts/extjs/adapter/ext/ext-base.js"></script>
 	<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/scripts/extjs/ext-all.js"></script>
 	<script type="text/javascript">
@@ -16,16 +17,17 @@
 		// Assign various config options as seen.	 
 	    var login = new Ext.FormPanel({ 
 	        labelWidth:80,
-	        url:'auth/doLogin', 
+	        url:'dologin',
+	        baseParams: {module: 'loginOF'}, 
 	        frame:true, 
 	        title:'Ingreso de Usuarios', 
 	        width:230, 
 	        padding:200, 
 	        defaultType:'textfield',
-		monitorValid:true,
+			monitorValid:true,
 	 
-		// Specific attributes for the text fields for username / password. 
-		// The "name" attribute defines the name of variables sent to the server.
+			// Specific attributes for the text fields for username / password. 
+			// The "name" attribute defines the name of variables sent to the server.
 	        items:[{ 
 	                fieldLabel:'Usuario', 
 	                name:'loginUsername', 
@@ -62,7 +64,7 @@
 	                        success:function(){ 
 	                        	Ext.Msg.alert('Status', 'Login Successful!', function(btn, text){
 					   if (btn == 'ok'){
-			                        var redirect = 'test.asp'; 
+			                        var redirect = '	index'; 
 			                        window.location = redirect;
 	                                   }
 				        });
