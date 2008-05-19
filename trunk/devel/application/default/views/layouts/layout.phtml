@@ -13,6 +13,20 @@
     .nav {
         background-image:url(<?php echo $this->baseUrl(); ?>/images/folder_go.png);
     }
+    #tree {
+    	float:left;
+    	margin:20px;
+    	border:1px solid #c3daf9;
+    	width:250px;
+    	height:300px;
+    	overflow:auto;
+    }
+    .folder .x-tree-node-icon{
+		background:transparent url(../includes/ext/resources/images/default/tree/folder.gif);
+	}
+	.x-tree-node-expanded .x-tree-node-icon{
+		background:transparent url(../includes/ext/resources/images/default/tree/folder-open.gif);
+	}
 	</style>	
 	<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/scripts/extjs/adapter/ext/ext-base.js"></script>
 	<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/scripts/extjs/ext-all.js"></script>
@@ -21,7 +35,23 @@
 		var clock = new Ext.Toolbar.TextItem('');
 		var clock2 = new Ext.Toolbar.TextItem('Hoy es: '+new Date().format('d-m-Y'));
         Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
-        
+        var Tree = Ext.tree;
+		// yui-ext tree
+		var tree = new Tree.TreePanel({
+			animate:true, 
+			loader: new Tree.TreeLoader({dataUrl:'index/getnodes'}),
+			containerScroll: true,
+		});
+		// add a tree sorter in folder mode
+		// set the root node
+		var root = new Tree.AsyncTreeNode({
+			text: 'Menu', 
+			draggable:false, // disable root node dragging
+			id:'source'
+		});
+		tree.setRootNode(root);
+		//tree.render();
+		root.expand(false,false);		
        var viewport = new Ext.Viewport({
             layout:'border',
             items:[
@@ -115,7 +145,20 @@
                     layoutConfig:{
                         animate:true
                     },
-                    items: [{
+                    items: [
+                    //tree,
+                    <?php if($this->lmenus): ?>
+                    <?php
+						foreach($this->lmenus as $k=>$v){
+							echo "{
+		                        title:'{$v['des_menu']}',
+		                        border:false,
+		                        iconCls:'nav'
+	                    	},";
+						}
+                    ?>
+                    <?php endif; ?>
+                    {
                         contentEl: 'west',
                         title:'Menu',
                         border:false,
@@ -125,7 +168,8 @@
                         html:'<p>Some settings in here.</p>',
                         border:false,
                         iconCls:'settings'
-                    }]
+                    }
+                    ]
                 },
                 new Ext.TabPanel({
                     region:'center',
@@ -134,11 +178,11 @@
                     items:[{
                         contentEl:'center1',
                         title: 'Panel de Informacion',
-                        closable:true,
                         autoScroll:true
                     },{
                         contentEl:'center2',
                         title: 'Center Panel',
+                        closable:true,
                         autoScroll:true
                     }]
                 })
@@ -159,14 +203,17 @@
     <p>Hi. I'm the west panel.</p>
   </div>
   <div id="north">
-    <p>north - generally for menus, toolbars and/or advertisements</p>
+    <?php echo $this->bodyTitle; ?>
+    <?php
+    //print_r($this->lmenus);
+    ?>
   </div>
   <div id="center2">
 	<a id="hideit" href="#">Toggle the west region</a>
 	Centro 1
   </div>
   <div id="center1">
-	Centro 2
+	Como vas
   </div>
   <div id="props-panel" style="width:200px;height:200px;overflow:hidden;">
   </div>

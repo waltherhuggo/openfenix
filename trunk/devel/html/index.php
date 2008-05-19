@@ -6,7 +6,7 @@
  * @version 2.0.0.0 Alpha 1
  */
 
-set_include_path('.' . PATH_SEPARATOR . '../library' . PATH_SEPARATOR . './application/default/models/' . PATH_SEPARATOR . get_include_path());
+set_include_path('.' . PATH_SEPARATOR . '../library' . PATH_SEPARATOR . '../application/default/models/' . PATH_SEPARATOR . get_include_path());
 define('ROOT_DIR', dirname(dirname(__FILE__)));
 /**
  * Llamada a Classes del ZF
