@@ -1,7 +1,7 @@
 <?php
 class Submenus extends Zend_Db_Table
 {
-	protected $_name = 'submenus';
+	protected $_name = 'system_submenus';
 	public function allSubmenus()
 	{
 		$select = $this->getAdapter()->select();
@@ -15,11 +15,11 @@ class Submenus extends Zend_Db_Table
 	{
 		$select = $this->getAdapter()->select();
 		$select->from(array('m'=>$this->_name),array('m.id','m.text','m.href','m.parent_id','m.target','m.title'))
-				->where("su.logusu = ?",$user)
+				->where("su.userid = ?",$user)
 				->where("m.estado = ?",'t')
 				->where("m.cod_menu = ?",$cmenu)
 				->where("su.cod_menu = ?",$cmenu)
-				->join(array('su'=>'submenus_usuarios'),"m.id = su.id",'su.id')
+				->join(array('su'=>'system_submenus_usuarios'),"m.id = su.id",'su.id')
 				->order("m.orderfield");
 		$resultado = $select->query();
 		$resSMenu=array(); $resSSMenu=array(); $resPMenu=array();
@@ -95,5 +95,20 @@ class Submenus extends Zend_Db_Table
 			$datosSubmenus[$datos[$i]['id']]=$datos[$i]['text'];
 		}
 		return $datosSubmenus;
+	}
+	
+	public function listarCabecerasSMUsers($userid,$menuid,$csmenuid=1)
+	{
+		$select = $this->getAdapter()->select();
+		$select->from(array('m'=>$this->_name),array('m.id','m.text','m.href','m.target','m.title'))
+				->where("su.userid = ?",$userid)
+				->where("m.estado = ?",'t')
+				->where("m.parent_id = ?",$csmenuid)
+				->where("m.cod_menu = ?",$menuid)
+				->where("su.cod_menu = ?",$menuid)
+				->join(array('su'=>'system_submenus_usuarios'),"m.id = su.id",'su.id')
+				->order("m.orderfield");
+		$resultado = $select->query();
+		return $resultado->fetchAll();
 	}
 }

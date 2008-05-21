@@ -32,7 +32,7 @@ class IndexController extends Zend_Controller_Action
 		Zend_Loader::loadClass('Users');
 		Zend_Loader::loadClass('Menus');
 		Zend_Loader::loadClass('Submenus');
-		/* */
+		Zend_Loader::loadClass('Zend_Json');
 	}
 
 	/**
@@ -44,7 +44,7 @@ class IndexController extends Zend_Controller_Action
        	$userOn = Zend_Auth::getInstance()->getIdentity();
        	$menus = new Menus();
        	$this->view->lmenus=$menus->listarMenus($userOn->id);
-        $this->view->pageTitle = "openFenix 2.0 ";
+    	$this->view->pageTitle = "openFenix 2.0 ";
         $this->view->bodyTitle = "Bienvenido: ".$userOn->username;
         $this->view->bodyCopy = "<p>Esto no necesariamente va aqui.</p>";
     	
@@ -53,6 +53,24 @@ class IndexController extends Zend_Controller_Action
     {
     	$this->_helper->layout->disableLayout();
 		$this->_helper->viewRenderer->setNoRender();
-    	echo "{success: true}";
+		$userOn = Zend_Auth::getInstance()->getIdentity();
+       	$menus = new Menus();
+       	$this->view->lmenus=$menus->listarMenus($userOn->id);
+		$smenus=new Submenus();
+		$arraySubmenus=array();
+		$cMenu=$this->getRequest()->getParam('headerNode');
+		$csMenu=$this->getRequest()->getParam('node');
+		if($csMenu=='id')$csMenu=1;
+		$listSubMenusUser=$smenus->listarCabecerasSMUsers($userOn->id,$cMenu,$csMenu);
+		//echo count($listSubMenusUser);
+		//print_r($listSubMenusUser);
+		foreach ($listSubMenusUser as $ksMenu => $vsMenu)
+		{
+			$cls=(empty($vsMenu['href']))?"folder":"file";
+			$arraySubmenus[]=array("text"=>$vsMenu['text'],"id"=>$vsMenu['id'],"href"=>$vsMenu['href'],"cls"=>$cls);
+		}
+		$json = $arraySubmenus;  
+		$json = Zend_Json::encode($json);	
+    	echo $json;
     }
 }

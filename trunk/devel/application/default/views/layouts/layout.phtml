@@ -22,10 +22,13 @@
     	overflow:auto;
     }
     .folder .x-tree-node-icon{
-		background:transparent url(../includes/ext/resources/images/default/tree/folder.gif);
+		background:transparent url(<?php echo $this->baseUrl(); ?>/scripts/extjs/resources/images/default/tree/folder.gif);
+	}
+	.file .x-tree-node-icon{
+		background:transparent url(<?php echo $this->baseUrl(); ?>/scripts/extjs/resources/images/default/tree/leaf.gif);
 	}
 	.x-tree-node-expanded .x-tree-node-icon{
-		background:transparent url(../includes/ext/resources/images/default/tree/folder-open.gif);
+		background:transparent url(<?php echo $this->baseUrl(); ?>/scripts/extjs/resources/images/default/tree/folder-open.gif);
 	}
 	</style>	
 	<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/scripts/extjs/adapter/ext/ext-base.js"></script>
@@ -37,6 +40,37 @@
         Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
         var Tree = Ext.tree;
 		// yui-ext tree
+		<?php if($this->lmenus): ?>
+		<?php
+		foreach($this->lmenus as $k=>$v){
+			echo "
+			var tree{$v['cod_menu']} = new Tree.TreePanel({
+				animate:true,
+				height: 350,
+				//autoScroll:true,
+				loader: new Tree.TreeLoader({
+					dataUrl:'index/getnodes',
+					baseParams: {headerNode: '{$v['cod_menu']}'}
+				}),
+	            containerScroll: true,
+	            dropConfig: {appendOnly:true},
+	            id: 'id'
+			});
+            new Tree.TreeSorter(tree{$v['cod_menu']}, {folderSort:true});
+            var root{$v['cod_menu']} = new Tree.AsyncTreeNode({
+            	text: 'MENU',
+            	draggable:false,
+            	//hidden:true,
+            	id:'id'
+        	});
+        	tree{$v['cod_menu']}.setRootNode(root{$v['cod_menu']});
+        	root{$v['cod_menu']}.expand(false,false);
+			//tree{$v['cod_menu']}.render();
+			";
+		}
+		?>
+		<?php endif; ?>
+		/*
 		var tree = new Tree.TreePanel({
 			animate:true, 
 			loader: new Tree.TreeLoader({dataUrl:'index/getnodes'}),
@@ -51,7 +85,8 @@
 		});
 		tree.setRootNode(root);
 		//tree.render();
-		root.expand(false,false);		
+		root.expand(false,false);
+		*/		
        var viewport = new Ext.Viewport({
             layout:'border',
             items:[
@@ -153,7 +188,10 @@
 							echo "{
 		                        title:'{$v['des_menu']}',
 		                        border:false,
-		                        iconCls:'nav'
+		                        iconCls:'nav',
+		                        items:[
+		                        	tree{$v['cod_menu']}
+		                        ]
 	                    	},";
 						}
                     ?>
