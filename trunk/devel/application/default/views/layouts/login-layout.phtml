@@ -72,17 +72,11 @@
 				// If a success occurs, the user is notified with an alert messagebox, 
 				// and when they click "OK", they are redirected to whatever page
 				// you define as redirect. 
-	 
-	                        success:function(){ 
-	                        	Ext.Msg.alert('Status', 'Login Successful!', function(btn, text){
-					   if (btn == 'ok'){
-			                        var redirect = '	index'; 
-			                        window.location = redirect;
-	                                   }
-				        });
-	                        },
-	 
-				// Failure function, see comment above re: success and failure. 
+	                   success:function(){ 
+			           	var redirect = 'index'; 
+			            window.location = redirect;
+	                   },
+	 			// Failure function, see comment above re: success and failure. 
 				// You can see here, if login fails, it throws a messagebox
 				// at the user telling him / her as much.  
 	 
