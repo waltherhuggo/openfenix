@@ -1,0 +1,2 @@
+#labels diagram
+http://openfenix.googlecode.com/svn/wiki/images/openfenix.png
