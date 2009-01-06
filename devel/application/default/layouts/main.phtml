@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * openFenix Main Layout
+ *  
+ * @author Joe Nilson
+ * @version 1
+ */
+
+echo '<?xml version="1.0" encoding="UTF-8" ?>';
+echo $this->doctype ()?>
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<?php
+		echo $this->headTitle ();
+		echo $this->headScript ();
+		echo $this->headStyle ();
+		?>
+	</head>
+
+<body style="font-family: Arial; margin: 0px;">
+<h1 style="background-color: #669933; color: white;">
+<?php echo $this->placeholder ( 'title' )?>
+</h1>
+		<?php
+		echo $this->layout ()->content?>
+
+		<br />
+		<?php echo $this->placeholder ( 'opciones' )?>
+<br />
+</body>
+
+</html>
