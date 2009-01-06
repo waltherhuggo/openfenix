@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="95"
+   height="27"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.45"
+   version="1.0"
+   sodipodi:docbase="/var/www/html/proyecto9/images/default"
+   sodipodi:docname="logo_correo.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/var/www/html/proyecto9/images/default/logo_correo.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"
+   sodipodi:modified="TRUE">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="8.2842105"
+     inkscape:cx="48.272003"
+     inkscape:cy="13.5"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     width="95px"
+     height="27px"
+     inkscape:window-width="1280"
+     inkscape:window-height="692"
+     inkscape:window-x="0"
+     inkscape:window-y="24" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:0.77777782;fill:#000000;fill-opacity:0.85526315;stroke:none;stroke-width:0.27900001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2160"
+       width="93.430748"
+       height="12.674714"
+       x="0.84498096"
+       y="0.6848793"
+       rx="0.19522607"
+       ry="0.18138571" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="-2.1509173e-07"
+       y="23.740788"
+       id="text2162"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2164"
+         x="-2.1509173e-07"
+         y="23.740788">@</tspan></text>
+    <rect
+       style="opacity:0.77777782;fill:#4278ab;fill-opacity:0.59649122;stroke:none;stroke-width:0.27900001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2166"
+       width="79.066071"
+       height="12.674714"
+       x="15.209657"
+       y="13.84244"
+       rx="0.19522607"
+       ry="0.18138571"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.80948687px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:AlYermook"
+       x="2.2086897"
+       y="7.9652753"
+       id="text3139"
+       sodipodi:linespacing="125%"
+       transform="scale(0.7608991,1.3142346)"><tspan
+         sodipodi:role="line"
+         id="tspan3141"
+         x="2.2086897"
+         y="7.9652753">Ind. San Miguel del Caribe S.A.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="14.710293"
+       y="23.205845"
+       id="text4112"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4114"
+         x="14.710293"
+         y="23.205845">kolareal.com.do</tspan></text>
+  </g>
+</svg>
