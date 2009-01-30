@@ -57,7 +57,7 @@ class Initializer extends Zend_Controller_Plugin_Abstract {
 		}
 		$this->_root = $root;
 		
-		$this->initPhpConfig ();
+		$this->initPhpConfig ($env);
 		
 		$this->_front = Zend_Controller_Front::getInstance ();
 		
@@ -87,8 +87,17 @@ class Initializer extends Zend_Controller_Plugin_Abstract {
 	 * 
 	 * @return void
 	 */
-	public function initPhpConfig() {
-	
+	public function initPhpConfig($env) {
+		// Parse Config INI
+		$config = new Zend_Config_Ini($this->_root.'/application/config/openfenix.ini', $env);
+		$registry = Zend_Registry::getInstance();
+		$registry->set('params', $config);
+
+		// Set up Data Base
+		$db = Zend_Db::factory($config->database->adapter,
+		$config->database->params->toArray());
+		Zend_Db_Table::setDefaultAdapter($db);
+		Zend_Registry::set('dbAdapter', $db);
 	}
 	
 	/**
@@ -104,14 +113,14 @@ class Initializer extends Zend_Controller_Plugin_Abstract {
 		$this->initRoutes ();
 		$this->initControllers ();
 	}
-	
+
 	/**
 	 * Initialize data bases
 	 * 
 	 * @return void
 	 */
 	public function initDb() {
-	
+
 	}
 	
 	/**
