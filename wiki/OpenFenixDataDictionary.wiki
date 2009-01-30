@@ -1,4 +1,4 @@
-#summary OpenFenix Data Dictionary.
+#summary OpenFenix Data Dictionary Explanation.
 #labels Phase-Implementation
 
 = Introduction =
@@ -17,5 +17,4 @@ The Data Dictionary has the follow:
 
 This is a link to see the file:
 
-OpenFenixDataDictionary
 [http://openfenix.googlecode.com/svn/wiki/files/openFenix_Data_Dictionary.ods]
