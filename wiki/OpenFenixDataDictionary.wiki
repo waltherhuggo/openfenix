@@ -17,4 +17,4 @@ The Data Dictionary has the follow:
 
 This is a link to see the file:
 
-[OpenFenixDD http://openfenix.googlecode.com/svn/wiki/files/openfenix_Data_Dictionary.ods]
+http://openfenix.googlecode.com/svn/wiki/files/openfenix_Data_Dictionary.ods
