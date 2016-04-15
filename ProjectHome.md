@@ -1,0 +1,1 @@
+openFenix es un proyecto para desarrollar un sistema para control de Logistica, Contabilidad, Personal, Finanzas y otros modulos que pueden ser agregados, esta pensado mas que nada para empresas de producción o distribución.

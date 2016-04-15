@@ -1,0 +1,1 @@
+![http://openfenix.googlecode.com/svn/wiki/images/openfenix.png](http://openfenix.googlecode.com/svn/wiki/images/openfenix.png)
